@@ -5,12 +5,11 @@ function DisplayData(){
         snapshot.forEach((docs)=>{
           const data =docs.data();
           users.push(data);
-        
-              var name = docs.UserName;
-              var numb = docs.MobileNumber; 
-              addItems(name,numb)
-         
-
+          users.map((d)=>{
+            var name = d.UserName;
+            var numb = d.MobileNumber; 
+            addItems(name,numb)
+        })
         })
     });
     
