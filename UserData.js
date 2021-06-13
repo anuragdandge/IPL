@@ -1,15 +1,9 @@
 var db= firebase.firestore();
 function DisplayData(){
     db.collection('users').get().then((snapshot)=>{
-        const users=[];
         snapshot.forEach((docs)=>{
           const data =docs.data();
-          users.push(data);
-          users.map((d)=>{
-            var name = d.UserName;
-            var numb = d.MobileNumber; 
-            addItems(name,numb)
-        })
+              addItems(data.UserName,data.MobileNumber)
         })
     });
     
